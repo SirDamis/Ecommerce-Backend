@@ -96,9 +96,9 @@ class Query(UserQuery, MeQuery, graphene.ObjectType):
 
 
 class Mutation(AuthMutation, CreateSellerMutation, UpdateSellerMutation, DeleteSellerMutation, graphene.ObjectType):
-    create_seller = CreateSellerMutation.Field()
-    update_seller = UpdateSellerMutation.Field()
-    delete_seller = DeleteSellerMutation.Field()
+    create_seller = CreateSellerMutation.Field(description="Create new user")
+    update_seller = UpdateSellerMutation.Field(description="Update exisiting user")
+    delete_seller = DeleteSellerMutation.Field(description="Delete a user")
     # pass
 
 

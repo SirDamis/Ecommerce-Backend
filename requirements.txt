@@ -10,6 +10,7 @@ click-didyoumean==0.3.0
 click-plugins==1.1.1
 click-repl==0.2.0
 Django==3.2.12
+django-environ==0.8.1
 django-filter==21.1
 django-graphql-auth==0.3.16
 django-graphql-jwt==0.3.0
