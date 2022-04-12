@@ -7,6 +7,15 @@ from .models import Seller
 from graphql_auth.schema import UserQuery, MeQuery
 from graphql_auth import mutations
 
+# class VerifyAccount(
+#     MutationMixin, DynamicArgsMixin, VerifyAccountMixin, graphene.Mutation
+# ):
+#     __doc__ = VerifyAccountMixin.__doc__
+#     _required_args = ["token"]
+
+#     def sendWelcomeEmail():
+
+
 class AuthMutation(graphene.ObjectType):
     register = mutations.Register.Field()
     verify_account = mutations.VerifyAccount.Field()
@@ -28,6 +37,11 @@ class AuthMutation(graphene.ObjectType):
     verify_token = mutations.VerifyToken.Field()
     refresh_token = mutations.RefreshToken.Field()
     revoke_token = mutations.RevokeToken.Field()
+
+
+
+
+
 
 
 class SellerType(DjangoObjectType):
