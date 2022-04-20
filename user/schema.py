@@ -7,18 +7,26 @@ from .models import Seller
 from graphql_auth.schema import UserQuery, MeQuery
 from graphql_auth import mutations
 
-# class VerifyAccount(
-#     MutationMixin, DynamicArgsMixin, VerifyAccountMixin, graphene.Mutation
-# ):
-#     __doc__ = VerifyAccountMixin.__doc__
-#     _required_args = ["token"]
 
-#     def sendWelcomeEmail():
+
+from .CustomMixins import VerifyAccountMixin
+from graphql_auth.bases import MutationMixin, DynamicArgsMixin
+
+class VerifyAccount(
+    MutationMixin, DynamicArgsMixin, VerifyAccountMixin, graphene.Mutation
+):
+    __doc__ = VerifyAccountMixin.__doc__
+    _required_args = ["token"]
+
+
 
 
 class AuthMutation(graphene.ObjectType):
     register = mutations.Register.Field()
-    verify_account = mutations.VerifyAccount.Field()
+    # verify_account = mutations.VerifyAccount.Field()
+
+    verify_account = VerifyAccount.Field()
+
     resend_activation_email = mutations.ResendActivationEmail.Field()
     send_password_reset_email = mutations.SendPasswordResetEmail.Field()
     password_reset = mutations.PasswordReset.Field()

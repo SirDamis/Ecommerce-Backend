@@ -6,6 +6,7 @@ from django.contrib.auth.models import (
 )
 # from product.models import Products
 
+
 class UserManager(BaseUserManager):
     def create_user(self, email, name, password=None, **other_fields):
         """
@@ -84,25 +85,8 @@ class User(AbstractBaseUser):
     def __str__(self):
         return self.email
 
-    def has_perm(self, perm, obj=None):
-        "Does the user have a specific permission?"
-        # Simplest possible answer: Yes, always
-        return True
 
-    def has_module_perms(self, app_label):
-        "Does the user have permissions to view the app `app_label`?"
-        # Simplest possible answer: Yes, always
-        return True
-
-    # @property
-    # def is_staff(self):
-    #     "Is the user a member of staff?"
-    #     return self.staff
-
-    # @property
-    # def is_admin(self):
-    #     "Is the user a admin member?"
-    #     return self.admin
+    
 
 
 
