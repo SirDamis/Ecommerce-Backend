@@ -1,11 +1,14 @@
 import graphene
 from user.schema import Query as UserQuery, Mutation as UserMutation
-from product.schema import Query as ProductQuery
+from product.schema import (
+    Query as ProductQuery,
+    Mutation as ProductMutation,
+)
 
 class Query(UserQuery, ProductQuery):
     pass
 
-class Mutation(UserMutation):
+class Mutation(UserMutation, ProductMutation):
     pass
 
 

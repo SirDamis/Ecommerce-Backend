@@ -13,13 +13,12 @@ def send_welcome_email(token):
     )
 
     email = payload['email']
-    print(email)
-    html_template = get_template('email/welcome.html')
-    comtext = {
+    html_template = get_template('email/welcome_email.html')
+    context = {
         'email': email,
     }
     
     subject, from_email, to = 'Welcome to Ecommerce', 'noreply@ecommerce.com', email
-    html_content = html_template.render(comtext)
+    html_content = html_template.render(context)
     msg =  EmailMultiAlternatives(subject, html_content, from_email, [to])
     msg.send()

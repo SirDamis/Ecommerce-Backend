@@ -48,6 +48,13 @@ class AuthMutation(graphene.ObjectType):
 
 
 
+class SellerInput(graphene.InputObjectType):
+    pk = graphene.ID()
+    shop_name = graphene.String()
+    full_name = graphene.String()
+    phone_number = graphene.String()
+    email = graphene.String()
+    password = graphene.String()
 
 
 
